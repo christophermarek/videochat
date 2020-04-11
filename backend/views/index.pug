@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div
+    input(type="button", value="Home")
+  script.
+    const socket = io();
+    socket.emit('chatter', 'Hello from client');
+    socket.on('chatter', function(message) {
+      console.log(message);
+    });
